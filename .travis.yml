@@ -6,7 +6,6 @@ before_script:
 
 script:
   - yamllint ./ -c ./.yamllint
-  - flake8 ./
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
