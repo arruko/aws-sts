@@ -1,6 +1,10 @@
+# arruko.aws_sts
+
+[![Build Status](https://travis-ci.org/arruko/aws-sts.svg?branch=master)](https://travis-ci.org/arruko/aws-sts)
+
 # AWS STS Role
 
-This Ansible role allows a user to assume a given role, generating temporary security credentials that can be used to assume the role.
+This Ansible [role](https://galaxy.ansible.com/arruko/aws_sts)  allows a user to assume a given role, generating temporary security credentials that can be used to assume the role. 
 
 ## Requirements
 
@@ -12,6 +16,10 @@ This Ansible role allows a user to assume a given role, generating temporary sec
 ## Setup
 
 The recommended approach to use this role is an Ansible Galaxy requirement to your Ansible playbook project.
+
+## Role Variables
+
+Please refer to the [defaults file](/defaults/main.yml) for an up to date list of input parameters.
 
 ### Installing using Ansible Galaxy
 
@@ -99,9 +107,14 @@ The following shows the recommended play configuration to use the temporary cred
 ...
 ...
 ```
+## Errata
 
-## Release Notes
+No known issues.
 
-### Version v1.0
+## TODO
 
-- First Release
+- Unit Testing with Molecule
+
+## License
+
+This project is licensed under the terms of the [MIT License](/LICENSE)
