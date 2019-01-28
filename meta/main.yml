@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  name: aws_sts
   author: Jimmy Herrera
   description: An Ansible role to use the AWS STS service to assume an IAM role
   min_ansible_version: 2.4
