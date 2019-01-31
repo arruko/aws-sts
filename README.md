@@ -21,6 +21,26 @@ The recommended approach to use this role is an Ansible Galaxy requirement to yo
 
 Please refer to the [defaults file](/defaults/main.yml) for an up to date list of input parameters.
 
+```
+# MFA arn for awscli authentication
+aws_mfa_arn: ""
+
+# AWS account id 
+aws_account_id: ""
+
+# AWS admin role to assume
+aws_admin_role: ""
+
+# Name for ~/.aws/credentials profile
+aws_credential_profile_name: ""
+
+# AWS Key id for awscli
+awscli_credentials_key_id: ""
+
+# AWS access key for awscli
+awscli_credentials_access_key: ""
+```
+
 ### Installing using Ansible Galaxy
 
 To set this role up as an Ansible Galaxy requirement, first create a `requirements.yml` file in a subfolder called `roles` and add an entry for this role.  See the [Ansible Galaxy documentation](http://docs.ansible.com/ansible/galaxy.html#installing-multiple-roles-from-a-file) for more details.
