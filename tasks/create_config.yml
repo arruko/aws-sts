@@ -1,0 +1,28 @@
+---
+- name: ensure awscli is present
+  pip:
+    name: awscli
+    state: present
+  register: awscli_installation
+
+- name: create config directory for awscli
+  file:
+    path: ~/.aws
+    state: directory
+  register: awscli_dir_created
+  when: awscli_installation is succeeded
+
+- name: create config files for awscli
+  template:
+    src: templates/config.j2
+    dest: ~/.aws/config
+  when:
+    - awscli_dir_created is succeeded
+
+- name: create credentials for awscli
+  template:
+    src: templates/credentials.j2
+    dest: ~/.aws/credentials
+  when:
+    - awscli_dir_created is succeeded
+  register: awscli_configuration

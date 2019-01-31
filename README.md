@@ -4,7 +4,7 @@
 
 # AWS STS Role
 
-This Ansible [role](https://galaxy.ansible.com/arruko/aws_sts)  allows a user to assume a given role, generating temporary security credentials that can be used to assume the role. 
+This Ansible [role](https://galaxy.ansible.com/arruko/aws_sts) allows a user to assume a given role, generating temporary security credentials that can be used to assume the role. I've based on original role to add `awscli` configuration before role starts to authenticate with AWS.
 
 ## Requirements
 
@@ -21,28 +21,48 @@ The recommended approach to use this role is an Ansible Galaxy requirement to yo
 
 Please refer to the [defaults file](/defaults/main.yml) for an up to date list of input parameters.
 
+```
+# MFA arn for awscli authentication
+aws_mfa_arn: ""
+
+# AWS account id 
+aws_account_id: ""
+
+# AWS admin role to assume
+aws_admin_role: ""
+
+# Name for ~/.aws/credentials profile
+aws_credential_profile_name: ""
+
+# AWS Key id for awscli
+awscli_credentials_key_id: ""
+
+# AWS access key for awscli
+awscli_credentials_access_key: ""
+```
+
 ### Installing using Ansible Galaxy
 
 To set this role up as an Ansible Galaxy requirement, first create a `requirements.yml` file in a subfolder called `roles` and add an entry for this role.  See the [Ansible Galaxy documentation](http://docs.ansible.com/ansible/galaxy.html#installing-multiple-roles-from-a-file) for more details.
 
 ```
 # Example requirements.yml file
-- src: https://github.com/docker-production-aws/aws-sts.git
-  scm: git
-  version: v1.0
-  name: aws-sts
+- name: arruko.aws_sts
+  version: "1.0.4"
 ```
 
 Once you have created `roles/requirements.yml`, you can install the role using the `ansible-galaxy` command line tool.
 
 ```
 $ ansible-galaxy install --role-file=roles/requirements.yml --roles-path=./roles/ --force
-$ git commit -a -m "Added aws-sts 1.0.0 role"
+$ git commit -a -m "Added aws-sts 1.0.4 role"
 ```
 
 To update the role version, simply update the `requirements.yml` file and re-install the role as demonstrated above.
 
 ## Usage
+
+NOTE: This role will overwrite your `~/.aws` folder and files during role execution to config `awscli` according to [defaults file](/defaults/main.yml) values.
 
 ### Inputs
 

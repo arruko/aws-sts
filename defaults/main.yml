@@ -1,0 +1,18 @@
+---
+# MFA arn for awscli authentication
+aws_mfa_arn: ""
+
+# AWS account id
+aws_account_id: ""
+
+# AWS admin role to assume
+aws_admin_role: ""
+
+# Name for ~/.aws/credentials profile
+aws_credential_profile_name: ""
+
+# AWS Key id for awscli
+awscli_credentials_key_id: ""
+
+# AWS access key for awscli
+awscli_credentials_access_key: ""
