@@ -2,7 +2,7 @@
 # MFA arn for awscli authentication
 aws_mfa_arn: ""
 
-# AWS account id 
+# AWS account id
 aws_account_id: ""
 
 # AWS admin role to assume
