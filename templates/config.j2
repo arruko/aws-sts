@@ -1,0 +1,6 @@
+[profile {{ aws_credential_profile_name | mandatory }}]
+source_profile = {{ aws_credential_profile_name | mandatory }}
+role_arn = arn:aws:iam::{{ aws_account_id | mandatory }}:{{ aws_admin_role | mandatory }}
+{% if (aws_mfa_arn is defined) and (aws_mfa_arn != '') %}
+mfa_serial = {{ aws_mfa_arn }}
+{% endif %}
